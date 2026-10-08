@@ -113,7 +113,7 @@ const GAMES = [
       "assets/games/SPS1.png",
       "assets/games/SPS2.png"
     ],
-    download: "#"
+    download: "https://myket.ir/app/com.Roobinity.SPS"
   }
 ];
 
