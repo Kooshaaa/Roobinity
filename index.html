@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set lang/dir before anything paints, so switching languages never
+       flashes the wrong direction on reload. -->
+  <script>
+    (function () {
+      try {
+        var lang = localStorage.getItem("roobinity-lang") || "en";
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+      } catch (e) {}
+    })();
+  </script>
+  <title>Roobinity — Indie Game Studio</title>
+  <meta name="description" content="Roobinity is an indie game studio. Browse and download our mobile and PC games.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Sora:wght@400;500;600&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/Avatar.png">
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand">
+      <img src="assets/Roobinity.png" alt="Roobinity logo" class="nav__logo">
+      <span class="nav__name">Roobinity</span>
+    </a>
+
+    <div class="nav__right">
+      <nav class="nav__links">
+        <a href="#games" data-i18n="nav.games">Games</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <button class="lang-toggle" id="langToggle" type="button" data-active="en" data-i18n-aria="langToggle.label" aria-label="Switch language">
+        <span class="lang-toggle__track">
+          <span class="lang-toggle__thumb" aria-hidden="true"></span>
+          <span class="lang-toggle__label" data-lang-label="en">EN</span>
+          <span class="lang-toggle__label" data-lang-label="fa">فا</span>
+        </span>
+      </button>
+      <script>
+        document.getElementById("langToggle").setAttribute(
+          "data-active",
+          localStorage.getItem("roobinity-lang") || "en"
+        );
+      </script>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-reveal data-i18n="hero.eyebrow">Indie Game Studio</p>
+      <h1 class="hero__title">
+        <span class="hero__line" data-reveal data-i18n="hero.line1">We make games</span>
+        <span class="hero__line" data-reveal data-i18n="hero.line2">that are actually</span>
+        <span class="hero__line" data-reveal data-i18n="hero.line3">worth playing.</span>
+      </h1>
+      <p class="hero__sub" data-reveal data-i18n="hero.sub">
+        Roobinity is a small studio building games for phones and computers — every one
+         designed, built and shipped because we love making them.
+      </p>
+      <div class="hero__cta" data-reveal>
+        <a href="#games" class="btn btn--primary" data-i18n="hero.cta1">See the games</a>
+        <a href="#about" class="btn btn--ghost" data-i18n="hero.cta2">About the studio</a>
+      </div>
+    </div>
+
+    <a href="#games" class="hero__scroll" data-i18n-aria="hero.scrollLabel" aria-label="Scroll to games">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== GAMES ===== -->
+  <section class="games" id="games">
+    <div class="section__head" data-reveal>
+      <p class="section__eyebrow" data-i18n="games.eyebrow">Play something</p>
+      <h2 class="section__title" data-i18n="games.title">Our games</h2>
+    </div>
+
+    <div class="tabs" data-reveal role="tablist" aria-label="Filter games by platform">
+      <button class="tab is-active" data-filter="all" role="tab" aria-selected="true" data-i18n="tabs.all">All</button>
+      <button class="tab" data-filter="mobile" role="tab" aria-selected="false" data-i18n="tabs.mobile">Mobile</button>
+      <button class="tab" data-filter="pc" role="tab" aria-selected="false" data-i18n="tabs.pc">PC</button>
+    </div>
+
+    <div class="game-grid" id="gameGrid">
+      <!-- Game cards are injected by script.js from the GAMES array.
+           Add or edit games there — you don't need to touch this HTML. -->
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__text" data-reveal>
+        <p class="section__eyebrow" data-i18n="about.eyebrow">Who we are</p>
+        <h2 class="section__title" data-i18n="about.title">A one-person studio, learning something new with every game.</h2>
+        <p data-i18n="about.p1">
+          Roobinity didn't start with a clear plan or the right experience — a lot of it was figured out 
+          along the way, through mistakes, restarts, and a fair amount of trial and error.
+        </p>
+        <p data-i18n="about.p2">
+          Everything on this page is here to show what Roobinity has actually built — have a look through it and judge for yourself.
+        </p>
+      </div>
+      <div class="about__mark" aria-hidden="true">
+        <img src="assets/Roobinity.png" alt="" class="about__logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="contact__inner" data-reveal>
+      <p class="section__eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
+      <h2 class="section__title" data-i18n="contact.title">Contact us</h2>
+      <p class="contact__text" data-i18n="contact.text">
+        Questions, feedback, or just want to say hi? Send us an email —
+        we read everything.
+      </p>
+      <a class="contact__email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=roobinity.1015@gmail.com" target="_blank" rel="noopener">roobinity.1015@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__brand">
+      <img src="assets/Roobinity.png" alt="Roobinity logo" class="footer__logo">
+      <span>Roobinity</span>
+    </div>
+    <p class="footer__note">
+      <span data-i18n="footer.note">Built and hosted with care.</span>
+      © <span id="year"></span> Roobinity.
+    </p>
+    <button class="footer__top" id="toTop" data-i18n-aria="footer.backToTop" aria-label="Back to top">↑</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
